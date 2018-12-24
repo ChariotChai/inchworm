@@ -1,4 +1,4 @@
-package basic_java;
+package java.concurrency.threads;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
  * @author chaiyuze
  * @since 2018/10/8
  */
-public class Concurrent {
+public class Pools {
 
     /**
      * 创建线程池的相关内容，包括：

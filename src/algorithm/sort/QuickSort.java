@@ -1,4 +1,4 @@
-package leetcode.sort;
+package algorithm.sort;
 
 /**
  * Created by chaiyuze on 2018/9/4.
