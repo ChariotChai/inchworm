@@ -1,7 +1,7 @@
+package com.chariot.inchworm.leetcode.top100;
+
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 public class LongestStringWithOutRepeatingCharacters {
 

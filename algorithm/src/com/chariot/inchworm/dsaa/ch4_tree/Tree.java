@@ -167,7 +167,7 @@ public class Tree {
 
         while (!nodes.isEmpty()) {
             //访问当前节点
-            TreeNode node = nodes.poll();
+            TreeNode node = nodes.remove();
             node.walk();
 
             //将当前节点的子节点加入队列
@@ -201,7 +201,7 @@ public class Tree {
             int levelNodeCnt = nodes.size();
             for (int i = 0; i < levelNodeCnt; i++) {
                 //访问当前节点
-                TreeNode node = nodes.poll();
+                TreeNode node = nodes.remove();
                 if (node == target) {
                     return depth;
                 }
@@ -224,7 +224,7 @@ public class Tree {
 
     /**
      * 计算节点的高度(节点到其叶节点最长路径的长)
-     * 树的高度即为其根节点的高度
+     * 非递归方法
      * @param node
      * @return
      */
@@ -249,6 +249,31 @@ public class Tree {
         }
 
         return height;
+    }
+
+    /**
+     * 计算节点的高度(节点到其叶节点最长路径的长)
+     * 递归方法
+     * @param node
+     * @return
+     */
+    public static int nodeHeightRec(TreeNode node) {
+        if (node == null) {
+            return -1;
+        }
+
+        if (node.childs != null) {
+            int max = 0;
+            for (TreeNode n: node.childs) {
+                int h = nodeHeightRec(n);
+                if (h > max) {
+                    max = h;
+                }
+            }
+            return max + 1;
+        }
+
+        return 0;
     }
 
     /**
@@ -299,7 +324,7 @@ public class Tree {
      * @return
      */
     public static TreeNode findFirstAncestor(TreeNode root, TreeNode n1, TreeNode n2) {
-        return null;
+        return null; //todo
     }
 
     /**
@@ -334,15 +359,19 @@ public class Tree {
 
         //先序遍历
         System.out.println("================= pre-order traversal ==================");
+        System.out.print("recurrent: ");
         preOrderTraversalRec(root);
         System.out.println();
+        System.out.print("non recurrent: ");
         preOrderTraversalNonRec(root);
         System.out.println();
 
         //后序遍历
         System.out.println("================= post-order traversal ==================");
+        System.out.print("recurrent: ");
         postOrderTraversalRec(root);
         System.out.println();
+        System.out.print("non recurrent: ");
         postOrderTraversalNonRec(root);
         System.out.println();
 
@@ -358,9 +387,9 @@ public class Tree {
 
         //计算节点的高度
         System.out.println("================= node height ==================");
-        System.out.println(nodeHeight(node1));
-        System.out.println(nodeHeight(node2));
-        System.out.println(nodeHeight(root));
+        System.out.println(nodeHeightRec(node1));
+        System.out.println(nodeHeightRec(node2));
+        System.out.println(nodeHeightRec(root));
 
         //计算节点个数
         System.out.println("================= node amount ==================");
