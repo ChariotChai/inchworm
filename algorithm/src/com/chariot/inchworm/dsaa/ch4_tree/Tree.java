@@ -179,6 +179,10 @@ public class Tree {
         }
     }
 
+    public static void levelTraversal(TreeNode root, int curLevelWalked) {
+
+    }
+
     /**
      * 计算节点的深度(根到节点的路径长)
      * @param root
@@ -320,20 +324,13 @@ public class Tree {
     }
 
     /**
-     * 寻找两个节点的首个公共祖先节点
-     * @return
-     */
-    public static TreeNode findFirstAncestor(TreeNode root, TreeNode n1, TreeNode n2) {
-        return null; //todo
-    }
-
-    /**
      * 打印一棵树
      * @param root
      */
     public static void printTree(TreeNode root) {
 
         class TreeRow {
+
         }
 
     }
